@@ -1,6 +1,3 @@
-### **Updated README.md** for FaceTrack Attendance System
-
-```markdown
 # 🎯 FaceTrack Attendance System
 
 This project is a **Face Recognition-based Attendance System** built using **Python** and **OpenCV**. It uses the **face_recognition** library to detect and recognize faces from live webcam input and automatically logs attendance in a CSV file.
