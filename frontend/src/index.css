@@ -1,0 +1,135 @@
+/* Tailwind CSS directives - THESE ARE CRUCIAL */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Apply Inter font globally */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom styles for elements not fully covered by Tailwind utilities or for specific overrides */
+
+/* Buttons */
+.button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem; /* Rounded buttons */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.button-primary {
+    background-color: #3b82f6; /* Blue 500 */
+    color: white;
+}
+.button-primary:hover {
+    background-color: #2563eb; /* Blue 600 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.button-secondary {
+    background-color: #ef4444; /* Red 500 */
+    color: white;
+}
+.button-secondary:hover {
+    background-color: #dc2626; /* Red 600 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #3b82f6;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Main Container and Video/Canvas Layout */
+.container {
+    background-color: #ffffff;
+    border-radius: 1.5rem; /* More rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 Aspect Ratio (height / width * 100) */
+    background-color: #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.video-container video, .video-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video fills the container */
+    border-radius: 1rem;
+    transform: scaleX(-1); /* Mirror the video for natural selfie view */
+}
+.video-container canvas {
+    z-index: 10; /* Ensure canvas is on top of video */
+}
+.status-message {
+    min-height: 2.5rem; /* Ensure consistent height for messages */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #334155; /* Slate 700 */
+}
+
+/* Message Box (Modal) */
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    /* This will be controlled by React state, but good to have default */
+    /* display: none; */
+}
+.message-box-content {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    color: #334155;
+}
+.message-box-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.message-box-button:hover {
+    background-color: #2563eb;
+}
